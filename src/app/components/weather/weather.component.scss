@@ -1,0 +1,142 @@
+.basicInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3%;
+  background-color: inherit;
+  height: auto;
+  gap: 30px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  text-align: center;
+}
+
+.info h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.info span {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.weather-icon {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+
+.weather-icon img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@media (max-width: 600px) {
+  .basicInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info h1 {
+    font-size: 1.5rem;
+  }
+
+  .info span {
+    font-size: 1.4rem;
+  }
+
+  .weather-icon img {
+    max-width: 150px;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  margin: 3%;
+  border-radius: 20px;
+  gap: 3vh;
+  background-color: #202b3b;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.contentWind {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+
+.wind-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 80%;
+  min-width: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.state{
+  text-align: center;
+}
+
+mat-icon {
+  font-size: 2.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+
+@media (max-width: 600px) {
+  .contentWind {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wind-item {
+    width: 100%;
+  }
+
+  mat-icon {
+    font-size: 1.8rem;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+}
+

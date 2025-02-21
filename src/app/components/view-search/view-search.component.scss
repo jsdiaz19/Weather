@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3%;
+  gap: 15px;
+}
+
+h1{
+  padding: 3%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.info span {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.weather-icon {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.weather-icon img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+@media (max-width: 600px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info {
+    text-align: center;
+    align-items: flex-start;
+  }
+}
+

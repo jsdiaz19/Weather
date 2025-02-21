@@ -1,0 +1,32 @@
+<div class="basicInfo">
+  <div class="info">
+    <h1>{{ cityName }} </h1>
+    <span>{{ weather.current.temp_c}}°C / {{ weather.current.temp_f}}°F</span>
+    <span class="date-bottom">{{ weather.location.localtime }}</span>
+  </div>
+  <div class="weather-icon">
+    <img [src]="weather.current.condition.icon"/>
+  </div>
+</div>
+
+<h2 class="state">{{ weather.current.condition.text}} </h2>
+
+<div class="card">
+  <h2>{{ 'air_conditions' | translate | titlecase }} </h2>
+  <div class="contentWind">
+    <div class="wind-item">
+      <mat-icon>wind_power</mat-icon>
+      <div class="text">
+        <span>{{ 'speed_wind' | translate | titlecase }}</span>
+        <span>{{ weather.current.wind_kph }} Kph / {{ weather.current.wind_mph }} Mph</span>
+      </div>
+    </div>
+    <div class="wind-item">
+      <mat-icon>water_drop</mat-icon>
+      <div class="text">
+        <span>{{ 'humidity' | translate | titlecase }}</span>
+        <span>{{ weather.current.humidity }}%</span>
+      </div>
+    </div>
+  </div>
+</div>

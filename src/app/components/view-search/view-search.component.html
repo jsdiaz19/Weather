@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ data.name }}</h2>
+
+<mat-dialog-content class="content">
+  <div class="info">
+    <span> <mat-icon>thermostat</mat-icon> <b>{{ 'temperature' | translate | titlecase }} (C):</b> {{ data.response.current.temp_c }}°C </span>
+    <span> <mat-icon>device_thermostat</mat-icon> <b>{{ 'temperature' | translate | titlecase }}(F):</b> {{ data.response.current.temp_f }}°F </span>
+    <span> <mat-icon>wb_sunny</mat-icon> <b>{{ 'state' | translate | titlecase }}:</b> {{ data.response.current.condition.text }} </span>
+    <span> <mat-icon>access_time</mat-icon> <b>{{ 'hour_local' | translate | titlecase }}:</b> {{ data.response.location.localtime | date: 'YYYY-MM-dd' }} </span>
+    <span> <mat-icon>water_drop</mat-icon> <b>{{ 'humidity' | translate | titlecase }}:</b> {{ data.response.current.humidity }}% </span>
+    <span> <mat-icon>air</mat-icon> <b>{{ 'speed_wind' | translate | titlecase }}:</b> {{ data.response.current.wind_kph }} Kph </span>
+  </div>
+
+  <div class="weather-icon">
+    <img [src]="data.response.current.condition.icon" alt="Weather Icon"/>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>{{ 'accept' | translate | titlecase }}</button>
+</mat-dialog-actions>

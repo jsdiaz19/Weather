@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material.
+@include mat.core();
+
+// Definir paletas de colores para cada tema
+$wheater-light-primary: mat.define-palette(mat.$blue-palette, 800);
+$wheater-light-accent: mat.define-palette(mat.$amber-palette, 600);
+$wheater-light-warn: mat.define-palette(mat.$red-palette);
+
+$wheater-dark-primary: mat.define-palette(mat.$blue-palette, 500);
+$wheater-dark-accent: mat.define-palette(mat.$gray-palette, 300);
+$wheater-dark-warn: mat.define-palette(mat.$red-palette);
+
+// Definir el tema claro
+$wheater-theme-light: mat.define-light-theme((
+  color: (
+    primary: $wheater-light-primary,
+    accent: $wheater-light-accent,
+    warn: $wheater-light-warn,
+  )
+));
+
+// Definir el tema oscuro
+$wheater-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $wheater-dark-primary,
+    accent: $wheater-dark-accent,
+    warn: $wheater-dark-warn,
+  ),
+  density: 0
+));
+
+@include mat.all-component-themes($wheater-theme-light);
+
+// Clases para los temas (se pueden cambiar dinámicamente en Angular)
+.light-theme {
+  @include mat.all-component-themes($wheater-theme-light);
+  background: #F3F4F6;
+  color: #1F2937;
+}
+
+.dark-theme {
+  @include mat.all-component-themes($wheater-theme-dark);
+  background: #111827;
+  color: #F3F4F6;
+  background-color: #121826;
+}
+
+// Estilos globales
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .custom-dialog {
+    width: 90% !important; /* Ajusta el ancho en pantallas pequeñas */
+    max-width: 95% !important;
+  }
+}
+
+.tableContainer{
+  width: 100%;
+  overflow-x: auto;
+  table{
+    width: 100%;
+    min-width: 600px;
+  }
+}
+

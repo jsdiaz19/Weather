@@ -1,0 +1,43 @@
+.contenPage{
+  background: inherit;
+  width: 100vw;
+  height: 100vh;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-sidenav-container{
+  height: 100%;
+  width: 100%;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.sidenav {
+  width: 3vw;
+  min-width: 80px;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .sidenav {
+    width: 24vw;
+    .mat-drawer-inner-container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .footerNav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+}
