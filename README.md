@@ -1,27 +1,64 @@
-# Wheater
+# WEAThER WEB
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologías
 
-## Code scaffolding
+- Angular
+- Angular material
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Instalacion
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clona el repositorio
+```bash
+ git clone https://github.com/jsdiaz19/Weather.git
+```
+2. Navega a la carpeta del proyecto:
+```bash
+ cd weather
+```
+3. Instala las dependencias:
+```bash
+ npm install
+```
+4. Ejecuta el proyecto:
+```bash
+ npm run start
+```
 
-## Running unit tests
+5. Abre tu navegador y ve a `http://localhost:4200`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Detalles de implementacion
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para la integración con **WeatherAPI**, implementé un servicio en Angular que maneja las solicitudes HTTP utilizando `HttpClient`. Utilicé un **interceptor HTTP** para adjuntar automáticamente el token de autenticación y el idioma seleccionado en cada solicitud, asegurando una integración fluida y segura con la API. Además, manejé los errores de manera global dentro del interceptor, proporcionando mensajes de error claros y personalizados para mejorar la experiencia del usuario.
 
-## Further help
+En cuanto a las **optimizaciones**, apliqué las siguientes estrategias:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1.  **Uso de RxJS para actualizaciones automáticas:**
+    
+    -   Implementé operadores de RxJS como `switchMap`, `debounceTime` y `distinctUntilChanged` para optimizar las búsquedas y evitar llamadas innecesarias a la API.
+    -   Utilicé `shareReplay` para almacenar en caché las respuestas y evitar múltiples solicitudes al mismo endpoint.
+2.  **Internacionalización (i18n):**
+    
+    -   Agregué soporte para **español e inglés** utilizando `ngx-translate`, permitiendo a los usuarios cambiar el idioma dinámicamente sin necesidad de recargar la página.
+3.  **Modo oscuro y claro:**
+    
+    -   Implementé un sistema de **temas dinámicos** utilizando Angular Material, permitiendo a los usuarios alternar entre **modo oscuro y claro**.
+4.  **Paginación y optimización del historial de búsquedas:**
+    
+    -   Utilicé la **paginación de Angular Material** para mostrar resultados de manera eficiente cuando la lista de búsquedas y favoritos crece.
+    -   Implementé almacenamiento en `localStorage` para persistir el historial y evitar llamadas redundantes a la API.
+5.  **Diseño responsivo:**
+    
+    -   Utilicé **Angular Material** para una experiencia de usuario consistente en dispositivos móviles y escritorio.
+    -   Implementé **media queries** para asegurar un diseño adaptable a diferentes tamaños de pantalla.
+6.  **Manejo eficiente de la memoria:**
+    
+    -   Me aseguré de realizar la **desuscripción** de observables en cada componente para evitar fugas de memoria.
+7.  **Pipes personalizados:**
+    
+    -   Creé un **pipe personalizado** para validar y mostrar las ciudades favoritas correctamente en la vista.
+
+Con estas optimizaciones, logré mejorar la **eficiencia, usabilidad y escalabilidad** de la aplicación, garantizando una experiencia fluida y optimizada para los usuarios.

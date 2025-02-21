@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { Temperature } from 'src/app/models/temperature.model';
@@ -17,7 +17,8 @@ import { TranslateService, TranslateModule} from '@ngx-translate/core';
     MatButtonModule
   ],
   templateUrl: './view-search.component.html',
-  styleUrls: ['./view-search.component.scss']
+  styleUrls: ['./view-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewSearchComponent {
   private translate = Inject(TranslateService);

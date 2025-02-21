@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, debounceTime, distinctUntilChanged, filter, Observable, shareReplay, switchMap, tap } from 'rxjs';
 import { City } from 'src/app/models/city.model';
 import { Temperature } from 'src/app/models/temperature.model';
 import { environment } from 'src/environment/environment';
@@ -20,7 +20,7 @@ export class HttpService {
    */
   getCityCuurent():Observable<Omit<City,"id" | "name" | "region"|"country">>{
     let params= new HttpParams().set('q','auto:ip');
-    return this.http.get<Omit<City,"id" | "name" | "region"|"country"> >(`${this.baseUrl}/ip.json`,{params});
+    return this.http.get<Omit<City,"id" | "name" | "region"|"country"> >(`${this.baseUrl}/ip.json`,{params}).pipe(shareReplay(1));
   }
 
   /**
