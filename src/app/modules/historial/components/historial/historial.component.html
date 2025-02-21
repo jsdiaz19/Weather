@@ -7,7 +7,7 @@
 
     <ng-container matColumnDef="temperature">
       <th mat-header-cell *matHeaderCellDef> {{'temperature' | translate | titlecase }} </th>
-      <td mat-cell *matCellDef="let element">{{ element.response.current.wind_kph }}Kph/ {{ element.response.current.wind_mph}}Mph </td>
+      <td mat-cell *matCellDef="let element">{{ element.response.current.wind_kph }}Kph/ {{ element.response.current.wind_mph| temperatureUnit:'Mph'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="state">
@@ -17,7 +17,7 @@
 
     <ng-container matColumnDef="hour_local">
       <th mat-header-cell *matHeaderCellDef> {{'hour_local' | translate | titlecase }} </th>
-      <td mat-cell *matCellDef="let element">{{ element.response.location.localtime}} </td>
+      <td mat-cell *matCellDef="let element">{{ element.response.location.localtime | date:'MM-YY-dd'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">

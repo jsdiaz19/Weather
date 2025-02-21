@@ -1,7 +1,7 @@
 <div class="basicInfo">
   <div class="info">
     <h1>{{ cityName }} </h1>
-    <span>{{ weather.current.temp_c}}°C / {{ weather.current.temp_f}}°F</span>
+    <span>{{ weather.current.temp_c | temperatureUnit:'°C' }}/ {{ weather.current.temp_f | temperatureUnit:'°F'}}</span>
     <span class="date-bottom">{{ weather.location.localtime }}</span>
   </div>
   <div class="weather-icon">
@@ -18,14 +18,14 @@
       <mat-icon>wind_power</mat-icon>
       <div class="text">
         <span>{{ 'speed_wind' | translate | titlecase }}</span>
-        <span>{{ weather.current.wind_kph }} Kph / {{ weather.current.wind_mph }} Mph</span>
+        <span>{{ weather.current.wind_kph| temperatureUnit:'Kph' }} / {{ weather.current.wind_mph| temperatureUnit:'Mph' }} Mph</span>
       </div>
     </div>
     <div class="wind-item">
       <mat-icon>water_drop</mat-icon>
       <div class="text">
         <span>{{ 'humidity' | translate | titlecase }}</span>
-        <span>{{ weather.current.humidity }}%</span>
+        <span>{{ weather.current.humidity| temperatureUnit:'%' }}</span>
       </div>
     </div>
   </div>

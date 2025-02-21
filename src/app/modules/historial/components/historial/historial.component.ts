@@ -7,7 +7,7 @@ import { City } from 'src/app/models/city.model';
 import { Temperature } from 'src/app/models/temperature.model';
 import { HttpService } from 'src/app/services/Http/http.service';
 import { SessionService } from 'src/app/services/session/session.service';
-import { ViewSearchComponent } from '../view-search/view-search.component';
+import { ViewSearchComponent } from '../../../../components/view-search/view-search.component';
 
 @Component({
   selector: 'app-historial',

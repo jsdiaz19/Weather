@@ -19,12 +19,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpInterceptorInterceptor } from './httpInterceptor/http-interceptor.interceptor';
 import { WeatherComponent } from './components/weather/weather.component';
-import { HistorialComponent } from './components/historial/historial.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { FavoriteComponent } from './components/favorite/favorite.component';
 import { IsFavoritePipe } from './pipe/isFavorite/is-favorite.pipe';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TemperatureUnitPipe } from './pipe/TemperatureUnit/temperature-unit.pipe';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,12 +31,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     WeatherComponent,
-    HistorialComponent,
-    FavoriteComponent,
     IsFavoritePipe,
   ],
   imports: [
     BrowserModule,
+    TemperatureUnitPipe,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -49,7 +45,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatMenuModule,
     MatSidenavModule,
     MatTooltipModule,
-    MatTableModule,
     MatDialogModule,
     TranslateModule.forRoot({
       loader: {
@@ -60,7 +55,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     }),
     AppRoutingModule,
     MatSlideToggleModule,
-    MatPaginatorModule,
     MatIconModule,
     BrowserAnimationsModule
   ],

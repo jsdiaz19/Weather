@@ -123,4 +123,12 @@ export class AppComponent {
     this.session.saveFavorite(city.name);
   }
 
+  trackByCode(index:number, lng:{ code:string, name:string}){
+    return lng.code
+  }
+
+  trackByIdCity(index:number, city:Omit<City,"city" | "country_name" | "geoname_id">){
+    return city.id;
+  }
+
 }

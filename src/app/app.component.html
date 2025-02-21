@@ -32,7 +32,7 @@
         </button>
 
         <mat-menu #menu="matMenu">
-          <button mat-menu-item *ngFor="let lng of availableLangs" (click)="setLng(lng.code)" >{{ lng.name | translate | titlecase }}</button>
+          <button mat-menu-item *ngFor="let lng of availableLangs; trackBy: trackByCode" (click)="setLng(lng.code)" >{{ lng.name | translate | titlecase }}</button>
         </mat-menu>
 
         <mat-slide-toggle (change)="setTheme($event.checked)" [checked]="false" [matTooltip]="'theme' | translate | titlecase">  </mat-slide-toggle>
@@ -63,7 +63,7 @@
           </button>
 
           <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let lng of availableLangs" (click)="setLng(lng.code)" >{{ lng.name | translate | titlecase }}</button>
+            <button mat-menu-item *ngFor="let lng of availableLangs; trackBy: trackByCode" (click)="setLng(lng.code)" >{{ lng.name | translate | titlecase }}</button>
           </mat-menu>
 
           <button mat-button [matMenuTriggerFor]="menuCity" >{{ cityName }} </button>
@@ -74,7 +74,7 @@
             </mat-form-field>
 
             <ng-container *ngIf="(searchResults$ | async)?.length" >
-              <button mat-menu-item *ngFor="let city of searchResults$|async" (click)="selectCity(city)" >
+              <button mat-menu-item *ngFor="let city of searchResults$|async; trackBy: trackByIdCity" (click)="selectCity(city)" >
                 {{city.name | titlecase }}
                 <span class="favorite-icon" (click)="addFavorite(city,$event)">
                   <mat-icon>{{ city.name | isFavorite }} </mat-icon>

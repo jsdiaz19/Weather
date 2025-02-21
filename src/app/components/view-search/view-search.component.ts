@@ -14,7 +14,7 @@ import { TranslateService, TranslateModule} from '@ngx-translate/core';
     MatIconModule,
     MatDialogModule,
     TranslateModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './view-search.component.html',
   styleUrls: ['./view-search.component.scss'],
